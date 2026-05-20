@@ -7,16 +7,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #050810;
-    --bg2: #080d1a;
-    --surface: #0d1526;
-    --border: rgba(99,210,255,0.12);
-    --accent: #63d2ff;
-    --accent2: #ff6b9d;
-    --accent3: #a8ff78;
-    --text: #e8f4ff;
-    --muted: #7a9bb5;
-    --glow: rgba(99,210,255,0.25);
+    --bg: #fff0f5;
+    --bg2: #fde8f0;
+    --surface: #fcd6e8;
+    --border: rgba(210,80,130,0.18);
+    --accent: #d63a75;
+    --accent2: #f06fa5;
+    --accent3: #f9a8ce;
+    --text: #3a1020;
+    --muted: #9e5070;
+    --glow: rgba(214,58,117,0.22);
   }
 
   *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -74,7 +74,7 @@
     position:fixed; top:0; left:0; right:0; z-index:100;
     display:flex; justify-content:space-between; align-items:center;
     padding:1.2rem 4rem;
-    background:rgba(5,8,16,0.7);
+    background:rgba(255,240,245,0.82);
     backdrop-filter:blur(20px);
     border-bottom:1px solid var(--border);
   }
@@ -244,7 +244,7 @@
   .project-card:hover { border-color:rgba(99,210,255,.3); transform:translateY(-4px); }
   .project-glow {
     position:absolute; width:200px; height:200px; border-radius:50%;
-    background:radial-gradient(circle, rgba(99,210,255,.06), transparent 70%);
+    background:radial-gradient(circle, rgba(255,105,180,.06), transparent 70%);
     top:-50px; right:-50px; pointer-events:none;
   }
   .project-tag {
@@ -260,7 +260,7 @@
     display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.5rem;
   }
   .pill {
-    background:rgba(99,210,255,.08); border:1px solid rgba(99,210,255,.2);
+    background:rgba(255,105,180,.08); border:1px solid rgba(255,105,180,.2);
     color:var(--accent); font-size:.65rem; padding:.3rem .7rem; border-radius:20px;
     letter-spacing:.06em;
   }
@@ -773,7 +773,7 @@ function drawStars(t){
     const op = s.opacity*(0.6+0.4*Math.sin(s.pulse));
     ctx.beginPath();
     ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
-    ctx.fillStyle = `rgba(99,210,255,${op})`;
+    ctx.fillStyle = `rgba(214,58,117,${op * 0.35})`;
     ctx.fill();
     s.y -= s.speed*0.3;
     if(s.y < -5) { s.y = H+5; s.x = Math.random()*W; }
@@ -836,7 +836,7 @@ document.querySelectorAll('.project-card').forEach(card => {
     const r = card.getBoundingClientRect();
     const x = e.clientX - r.left;
     const y = e.clientY - r.top;
-    card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(99,210,255,.05), var(--surface) 60%)`;
+    card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(214,58,117,.08), var(--surface) 60%)`;
   });
   card.addEventListener('mouseleave', ()=>{ card.style.background = 'var(--surface)'; });
 });
